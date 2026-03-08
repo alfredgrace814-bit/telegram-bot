@@ -1,12 +1,18 @@
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-TOKEN = "8630186007:AAHpVL26R0qlRTHB_G1fab-f7cQBouY0wvA"
+TOKEN = "8630186007:AAEEOIf6CvSXvpLV6l9RHJfqycGkjLO2NO8"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Hello! Your bot is working.")
+    await update.message.reply_text("Hello! Your bot is running 🚀")
 
-app = ApplicationBuilder().token(TOKEN).build()
-app.add_handler(CommandHandler("start", start))
+def main():
+    app = ApplicationBuilder().token(TOKEN).build()
 
-app.run_polling()
+    app.add_handler(CommandHandler("start", start))
+
+    print("Bot started...")
+    app.run_polling()
+
+if __name__ == "__main__":
+    main()
